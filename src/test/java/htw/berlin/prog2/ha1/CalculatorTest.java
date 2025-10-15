@@ -107,5 +107,39 @@ class CalculatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    @DisplayName("multipleAddition")
+    void testMultipleAddition() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(10);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(10);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(20);
+        calc.pressEqualsKey();
+
+        String expected = "40";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("multipleEquals")
+    void testMultipleEquals() {
+        Calculator calc = new Calculator();
+
+        calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(2);
+        calc.pressEqualsKey();
+        calc.pressEqualsKey();
+
+        String expected = "4";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
+    }
 }
 
